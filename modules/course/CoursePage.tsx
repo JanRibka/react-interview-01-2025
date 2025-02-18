@@ -1,27 +1,29 @@
-import React from 'react'
-import { VariableSizeList as List } from 'react-window'
-import AutoSizer from 'react-virtualized-auto-sizer'
-import Spinner from '@/components/Spinner'
-import Container from '@/components/Container'
-import Video from './components/Video'
-import VideoFilter from './components/VideoFilter'
+import React from "react";
+import AutoSizer from "react-virtualized-auto-sizer";
+import { VariableSizeList as List } from "react-window";
+
+import Container from "@/components/Container";
+import Spinner from "@/components/Spinner";
+
+import Video from "./components/Video";
+import VideoFilter from "./components/VideoFilter";
 
 class CoursePage extends React.PureComponent {
-  listRef = React.createRef()
+  listRef = React.createRef();
 
+  getItemSize = (index) => {
+    const { playlistVideos } = this.props;
+    return playlistVideos[index].open === true ? 540 : 140;
+  };
 
-  getItemSize = index => {
-    const { playlistVideos } = this.props
-    return playlistVideos[index].open === true ? 540 : 140
-  }
-
-  toggleOpenCallback = index => {
-    this.listRef.current.resetAfterIndex(index)
-  }
+  toggleOpenCallback = (index) => {
+    this.listRef.current.resetAfterIndex(index);
+  };
 
   render() {
-    const { title, loading, error, playlistVideos } = this.props
-    const Row = ({ index, style, toggleOpenCallback }) => {
+    const { title, loading, error, playlistVideos } = this.props;
+
+    const Row = ({ index, style, toggleOpenCallback, toggleCompleted }) => {
       return (
         <div style={style}>
           <Video
@@ -34,8 +36,8 @@ class CoursePage extends React.PureComponent {
             toggleOpenCallback={this.toggleOpenCallback}
           />
         </div>
-      )
-    }
+      );
+    };
 
     return (
       <>
@@ -45,7 +47,7 @@ class CoursePage extends React.PureComponent {
             <VideoFilter />
             <h1>{title}</h1>
             {!loading && playlistVideos.length > 0 && (
-              <div style={{ height: '60vh' }}>
+              <div style={{ height: "60vh" }}>
                 <AutoSizer>
                   {({ height, width }) => (
                     <List
@@ -62,12 +64,12 @@ class CoursePage extends React.PureComponent {
               </div>
             )}
             {loading && <Spinner />}
-            {error && 'Error loading playlist'}
+            {error && "Error loading playlist"}
           </Container>
         </article>
       </>
-    )
+    );
   }
 }
 
-export default CoursePage
+export default CoursePage;

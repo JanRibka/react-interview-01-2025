@@ -1,11 +1,18 @@
+"use client";
+import { useSelector } from "react-redux";
+
+import { selectCourses } from "@/modules/courses/store/courses/coursesSlice";
+
 import CoursesListItem from "./CoursesListItem";
 
 const CoursesList: React.FC = () => {
+  const courses = useSelector(selectCourses);
+
   return (
     <ul>
-      <CoursesListItem slug="java" />
-      <CoursesListItem slug="free-code-camp" />
-      <CoursesListItem slug="ten-days-of-javascript" />
+      {courses.map((item) => (
+        <CoursesListItem key={item.id} slug={item.playlistId} id={item.id} />
+      ))}
     </ul>
   );
 };

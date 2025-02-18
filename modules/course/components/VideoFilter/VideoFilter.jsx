@@ -1,15 +1,15 @@
-import React from 'react'
-import styles from './VideoFilter.module.scss'
+import React from "react";
+import styles from "./VideoFilter.module.scss";
 
 const VideoFilter = ({ filters }) => {
   return (
-    <div className={styles['video-filter']}>
+    <div className={styles["video-filter"]}>
       Filter:
       {filters.map(({ onFilterSet, name, active }) => {
         return (
           <button
-            className={`${styles['video-filter__filter-button']} ${
-              active ? styles['video-filter__filter-button--active'] : ''
+            className={`${styles["video-filter__filter-button"]} ${
+              active ? styles["video-filter__filter-button--active"] : ""
             }`}
             type="button"
             onClick={onFilterSet}
@@ -17,10 +17,10 @@ const VideoFilter = ({ filters }) => {
           >
             {name}
           </button>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default VideoFilter
+export default VideoFilter;
