@@ -11,6 +11,7 @@ export default class ApiService {
       },
       body: JSON.stringify({ id: playlistId }),
     };
+
     const response = await fetch(`${this.apiUrl}/playlist`, request);
     return response;
   }

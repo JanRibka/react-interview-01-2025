@@ -10,7 +10,6 @@ const mockData: Record<string, any> = {
   PLnXfazh66kVc8TRx1qmK3wshWs330_xsK: "fk-2024-f",
 };
 
-
 export async function POST(request: Request) {
   const { id } = await request.json();
   console.log(request.body);

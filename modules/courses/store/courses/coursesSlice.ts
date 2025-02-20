@@ -14,15 +14,15 @@ export type CoursesState = Course[];
 export const initialState: CoursesState = [
   {
     id: uuidv4(),
-    playlistId: "java",
+    playlistId: "PLYPjPMiw3_YsVockWfuuhoP86YPDUXp4f",
   },
   {
     id: uuidv4(),
-    playlistId: "free-code-camp",
+    playlistId: "UU8butISFwT-Wl7EV0hUK0BQ",
   },
   {
     id: uuidv4(),
-    playlistId: "ten-days-of-javascript",
+    playlistId: "PLpcSpRrAaOaoIqHQddZOdbRrzr5dJtgSs",
   },
 ];
 

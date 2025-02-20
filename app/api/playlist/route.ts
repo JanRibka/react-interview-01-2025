@@ -1,12 +1,12 @@
 export const dynamic = "force-static";
 import { NextResponse } from "next/server";
-import java from "./java.json";
-import freeCodeCamp from "./free-code-camp.json";
-import tenDaysOfJavascript from "./ten-days-of-javascript.json";
-import fk2024e from "./fk-2024-e.json";
-import fk2024p from "./fk-2024-p.json";
-import fk2024f from "./fk-2024-f.json";
 
+import fk2024e from "./fk-2024-e.json";
+import fk2024f from "./fk-2024-f.json";
+import fk2024p from "./fk-2024-p.json";
+import freeCodeCamp from "./free-code-camp.json";
+import java from "./java.json";
+import tenDaysOfJavascript from "./ten-days-of-javascript.json";
 
 const mockData: Record<string, any> = {
   PLYPjPMiw3_YsVockWfuuhoP86YPDUXp4f: java,
@@ -16,7 +16,6 @@ const mockData: Record<string, any> = {
   PLnXfazh66kVd0jXpYliCLAreHc4TDwnTf: fk2024p,
   PLnXfazh66kVc8TRx1qmK3wshWs330_xsK: fk2024f,
 };
-
 
 export async function POST(request: Request) {
   const { id } = await request.json();

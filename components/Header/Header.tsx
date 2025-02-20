@@ -1,7 +1,10 @@
-import React from 'react'
-import Link from 'next/link'
-import Container from '@/components/Container'
-import styles from './Header.module.scss'
+import Link from "next/link";
+import React from "react";
+
+import Container from "@/components/Container";
+
+import Courses from "./Courses";
+import styles from "./Header.module.scss";
 
 const Header = () => (
   <header className={styles.base}>
@@ -12,19 +15,11 @@ const Header = () => (
           <li>
             <Link href="/">Home</Link>
           </li>
-          <li>
-            <Link href="/course/ten-days-of-javascript">10 days of JavaScript</Link>
-          </li>
-          <li>
-            <Link href="/course//java">Java</Link>
-          </li>
-          <li>
-            <Link href="/course/free-code-camp">Free Code Camp</Link>
-          </li>
+          <Courses />
         </ul>
       </nav>
     </Container>
   </header>
-)
+);
 
-export default Header
+export default Header;
